@@ -4,8 +4,12 @@ if (!process.env.API_ENDPOINT) {
   throw new Error("Missing API_ENDPOINT in .env file");
 }
 
-if (!process.env.TOKEN) {
-  throw new Error("Missing TOKEN in .env file");
+if (!process.env.API_KEY) {
+  throw new Error("Missing API_KEY in .env file");
+}
+
+if (!process.env.TENANT_ID) {
+  throw new Error("Missing TENANT_ID in .env file");
 }
 
 if (!process.env.CREDENTIAL_DEFINITION) {
@@ -20,8 +24,10 @@ if (!process.env.SCHEMA_NAME) {
 if (!process.env.SCHEMA_VERSION) {
   throw new Error("Missing SCHEMA_VERSION in .env file");
 }
+
 module.exports = {
-  token:process.env.TOKEN,
+  apiKey: process.env.API_KEY,
+  tenantId: process.env.TENANT_ID,
   apiEndpoint: process.env.API_ENDPOINT,
   credentialDefintion: process.env.CREDENTIAL_DEFINITION,
   issuerDid: process.env.ISSUER_DID,
