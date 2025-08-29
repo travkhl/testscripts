@@ -13,12 +13,10 @@ async function getAuthToken() {
   }
 
   try {
-    console.log('Obtaining authentication token...');
     const response = await apiClient.post(`/multitenancy/tenant/${tenantId}/token`, {
       api_key: apiKey,
     });    
     authToken = response.data.token;
-    console.log(`token ${authToken}`);
     apiClient.defaults.headers.common['Authorization'] = `Bearer ${authToken}`;
     return authToken;
   } catch (err) {
