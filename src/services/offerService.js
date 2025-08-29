@@ -1,5 +1,5 @@
 const { askQuestion, closePrompt } = require('../cli/prompts');
-const { credentialDefintion, issuerDid, schemaName, schemaVersion } = require('../config/env');
+const { credentialDefinition, issuerDid, schemaName, schemaVersion } = require('../config/env');
 
 async function createOffer() {
   console.log('Enter credential details to create an offer');
@@ -26,7 +26,7 @@ async function createOffer() {
     },
     "filter": {
       "indy": {
-        "cred_def_id": credentialDefintion,
+        "cred_def_id": credentialDefinition,
         "issuer_did": issuerDid,
         "schema_issuer_did": issuerDid,
         "schema_name": schemaName,

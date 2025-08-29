@@ -4,12 +4,11 @@ if (!process.env.API_ENDPOINT) {
   throw new Error("Missing API_ENDPOINT in .env file");
 }
 
-if (!process.env.API_KEY) {
-  throw new Error("Missing API_KEY in .env file");
-}
-
-if (!process.env.TENANT_ID) {
-  throw new Error("Missing TENANT_ID in .env file");
+// Accept either TOKEN or API_KEY + TENANT_ID
+if (!process.env.TOKEN) {
+  if (!process.env.API_KEY || !process.env.TENANT_ID) {
+    throw new Error("Missing authentication: provide either TOKEN or both API_KEY and TENANT_ID in .env file");
+  }
 }
 
 if (!process.env.CREDENTIAL_DEFINITION) {
@@ -28,8 +27,9 @@ if (!process.env.SCHEMA_VERSION) {
 module.exports = {
   apiKey: process.env.API_KEY,
   tenantId: process.env.TENANT_ID,
+  token: process.env.TOKEN,
   apiEndpoint: process.env.API_ENDPOINT,
-  credentialDefintion: process.env.CREDENTIAL_DEFINITION,
+  credentialDefinition: process.env.CREDENTIAL_DEFINITION,
   issuerDid: process.env.ISSUER_DID,
   schemaName: process.env.SCHEMA_NAME,
   schemaVersion: process.env.SCHEMA_VERSION

@@ -10,9 +10,7 @@ async function main() {
     const sendOfferRepsonse = await sendOfferToAPI(offer);
     const oobPayload = await prepareOOBPayload(sendOfferRepsonse);
     const oobInvite = await prepareURLAPI(oobPayload);
-    generateQR(oobInvite.invitation_url);
-    console.log('Process completed successfully!');
-    
+    generateQR(oobInvite.invitation_url);    
   } catch (error) {
     console.error('Error in main process:', error.message);
     process.exit(1);
