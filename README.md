@@ -17,6 +17,16 @@ It guides the user through providing credential details, sending them to the API
 
 ## Basic Setup
 - `.env` file configured with API and credential settings.
+```
+API_ENDPOINT=
+TOKEN=          //optional if API_KEY and TENANT_ID are provided
+API_KEY=        //optional if TOKEN is provided
+TENANT_ID=      //optional if TOKEN is provided
+CREDENTIAL_DEFINITION=
+ISSUER_DID=
+SCHEMA_NAME=
+SCHEMA_VERSION=
+```
 - Node.js installed on your system.
 
 ---
